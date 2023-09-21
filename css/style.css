@@ -3,3 +3,17 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    background-color: black;  
+}
+
+.container {
+    width: 800px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-image: url(../images/background_pattern.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
