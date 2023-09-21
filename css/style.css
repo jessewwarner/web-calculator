@@ -12,8 +12,50 @@ body {
     width: 800px;
     min-height: 100vh;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
     background-image: url(../images/background_pattern.png);
     background-size: cover;
     background-repeat: no-repeat;
     box-sizing: border-box;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    width: 350px;
+    height: 600px;
+    background-color: black;
+    border: 2px solid rgb(71, 71, 71);
+    border-radius: 10px;
+}
+
+.text-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 300px;
+    height: 175px;
+    border: 2px solid rgb(119, 119, 119);
+    background-color: rgb(14, 12, 24);
+    border-radius: 10px;
+    margin: 25px auto;
+}
+
+.comp-ops,
+.new-ops {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+    margin: 10px;
+}
+
+.comp-ops {
+    font-size: 20px;
+}
+
+.new-ops {
+    font-size: 36px;
 }
