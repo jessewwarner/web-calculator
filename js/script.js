@@ -30,8 +30,18 @@ function addDecimalToScreen(){
     }
 }
 
+function addSignToScreen(){
+    if (newOp.textContent[0] === '-'){
+        newOp.textContent = newOp.textContent.slice(1);
+    } else {
+        newOp.textContent = '-' + newOp.textContent;
+    }
+}
+
 numBtns.forEach((button) => {
     button.addEventListener('click', addNumberToScreen);
 });
 
 decimalBtn.addEventListener('click', addDecimalToScreen);
+
+signBtn.addEventListener('click', addSignToScreen);
