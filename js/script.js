@@ -31,6 +31,8 @@ function addDecimalToScreen(){
 }
 
 function addSignToScreen(){
+    if (newOp.textContent === '0') return;
+
     if (newOp.textContent[0] === '-'){
         newOp.textContent = newOp.textContent.slice(1);
     } else {
