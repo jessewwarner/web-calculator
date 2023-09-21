@@ -31,13 +31,27 @@ function addDecimalToScreen(){
 }
 
 function addSignToScreen(){
-    if (newOp.textContent === '0') return;
+    if (newOp.textContent == 0) return;
 
     if (newOp.textContent[0] === '-'){
         newOp.textContent = newOp.textContent.slice(1);
     } else {
         newOp.textContent = '-' + newOp.textContent;
     }
+}
+
+function removeLastNumber(){
+    newText = newOp.textContent.slice(0, -1);
+    if (newOp.textContent === '0') return;
+    if(newOp.textContent.length === 1 || newText === '-') {
+        newOp.textContent = 0;
+        return;
+    }
+    if (newText == 0 && newText[0] === '-'){
+        newOp.textContent = newText.slice(1);
+        return;
+    }
+    newOp.textContent = newText;
 }
 
 numBtns.forEach((button) => {
@@ -51,3 +65,6 @@ signBtn.addEventListener('click', addSignToScreen);
 clearBtn.addEventListener('click', () => {
     newOp.textContent = '0';
 });
+
+backBtn.addEventListener('click', removeLastNumber);
+
