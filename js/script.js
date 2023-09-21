@@ -22,6 +22,16 @@ function addNumberToScreen(){
     }
 }
 
+function addDecimalToScreen(){
+    if (newOp.textContent.includes('.')) {
+        alert("You cannot have more than one decimal!");
+    } else {
+        newOp.textContent += this.textContent;
+    }
+}
+
 numBtns.forEach((button) => {
     button.addEventListener('click', addNumberToScreen);
 });
+
+decimalBtn.addEventListener('click', addDecimalToScreen);
