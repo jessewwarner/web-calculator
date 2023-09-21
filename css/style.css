@@ -45,18 +45,18 @@ body {
     margin: 25px auto;
 }
 
-.comp-ops,
-.new-ops {
+.prev-op,
+.new-op {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: aquamarine;
     margin: 10px;
 }
 
-.comp-ops {
+.prev-op {
     font-size: 20px;
 }
 
-.new-ops {
+.new-op {
     font-size: 36px;
 }
 
