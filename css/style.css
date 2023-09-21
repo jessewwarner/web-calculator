@@ -38,7 +38,7 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     width: 300px;
-    height: 175px;
+    height: 140px;
     border: 2px solid rgb(119, 119, 119);
     background-color: rgb(14, 12, 24);
     border-radius: 10px;
@@ -58,4 +58,42 @@ body {
 
 .new-ops {
     font-size: 36px;
+}
+
+.buttons {
+    display: flex;
+    width: 300px;
+    height: 385px;
+    margin: 0px 25px 25px;
+    gap: 6px;
+}
+
+.btn {
+    background-color: gray;
+    width: 71px;
+    min-height: 60px;
+    flex-grow: 1;
+}
+
+.decimal {
+    flex-grow: 0;
+}
+
+.equals {
+    flex-grow: 2.6;
+}
+
+.btn-group-left,
+.btn-group-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    gap: 5px;
+    /* border: 2px solid yellow; */
+}
+
+.btn-group-right {
+    flex-direction: column;
+    justify-content: space-between;
 }
