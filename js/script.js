@@ -69,6 +69,7 @@ signBtn.addEventListener('click', addSignToScreen);
 
 clearBtn.addEventListener('click', () => {
     newOp.textContent = '0';
+    prevOp.textContent = '';
 });
 
 backBtn.addEventListener('click', removeLastNumber);

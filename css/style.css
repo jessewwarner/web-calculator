@@ -35,8 +35,8 @@ body {
 .text-window {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
     width: 300px;
     height: 140px;
     border: 2px solid rgb(119, 119, 119);
@@ -46,10 +46,10 @@ body {
 }
 
 .prev-op,
-.new-op {
+.new-op{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: aquamarine;
-    margin: 10px;
+    margin: 8px;
 }
 
 .prev-op {
