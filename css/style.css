@@ -27,7 +27,7 @@ body {
     margin-top: 30px;
     width: 350px;
     height: 600px;
-    background-color: rgb(11, 0, 29);
+    background-color: rgb(9, 8, 15);
     border: 2px solid rgb(71, 71, 71);
     border-radius: 10px;
 }
@@ -76,11 +76,12 @@ body {
     height: 60px;
     border-radius: 8px;
     font-size: 24px;
+    transition: all;
+    transition-duration: 0.2s;
 }
 
 .btn:hover {
-    background: linear-gradient(to bottom, rgb(17, 0, 39), rgb(142, 122, 255));
-    scale: 1.2;
+    scale: 1.1;
 }
 
 .btn-group-left {
@@ -107,13 +108,29 @@ body {
     background: linear-gradient(to bottom, rgb(0, 255, 221), rgb(6, 0, 37));
 }
 
+.num:hover {
+    box-shadow: 0 0 5px 1px rgb(0, 238, 255);
+}
+
+.equals:hover {
+    box-shadow: 0 0 5px 1px rgb(0, 238, 255);
+}
+
 .op {
     background: linear-gradient(to bottom, rgb(204, 0, 255), rgb(31, 0, 37));
     color: rgb(250, 200, 255);
 }
 
+.op:hover {
+    box-shadow: 0 0 5px 1px rgb(255, 0, 234);
+}
+
 .func {
     background: linear-gradient(to bottom, rgb(255, 102, 0), rgb(37, 17, 0));
     color: rgb(255, 222, 160);
+}
+
+.func:hover {
+    box-shadow: 0 0 5px 1px rgb(255, 187, 0);
 }
 
