@@ -54,6 +54,11 @@ function removeLastNumber(){
     newOp.textContent = newText;
 }
 
+function getSquareRoot(){
+    prevOp.textContent = '\u221A' + newOp.textContent + ' ='
+    newOp.textContent = Math.sqrt(parseFloat(newOp.textContent));
+}
+
 numBtns.forEach((button) => {
     button.addEventListener('click', addNumberToScreen);
 });
@@ -67,4 +72,6 @@ clearBtn.addEventListener('click', () => {
 });
 
 backBtn.addEventListener('click', removeLastNumber);
+
+sqrtBtn.addEventListener('click', getSquareRoot);
 
