@@ -45,3 +45,7 @@ numBtns.forEach((button) => {
 decimalBtn.addEventListener('click', addDecimalToScreen);
 
 signBtn.addEventListener('click', addSignToScreen);
+
+clearBtn.addEventListener('click', () => {
+    newOp.textContent = '0';
+});
