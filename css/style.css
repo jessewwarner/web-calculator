@@ -108,7 +108,8 @@ body {
     background: linear-gradient(to bottom, rgb(0, 255, 221), rgb(6, 0, 37));
 }
 
-.num:hover {
+.num:hover,
+.decimal:hover {
     box-shadow: 0 0 5px 1px rgb(0, 238, 255);
 }
 
