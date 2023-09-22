@@ -8,11 +8,17 @@ body {
     background-color: black;  
 }
 
+a {
+    text-decoration: none;
+    color: rgb(179, 179, 179);
+}
+
 .container {
     width: 800px;
     min-height: 100vh;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-image: url(../images/background_pattern.png);
@@ -31,6 +37,17 @@ body {
     border: 2px solid rgb(71, 71, 71);
     box-shadow: 0 0 20px 5px rgb(0, 89, 255);
     border-radius: 10px;
+}
+
+.footer {
+    margin-top: 40px;
+    min-width: 350px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    color: white;
+    background-color: rgb(5, 5, 5, 0.7);
+    padding: 10px;
 }
 
 .text-window {
