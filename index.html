@@ -15,30 +15,30 @@
             </div>
             <div class="buttons">
                 <div class="btn-group-left">
-                    <button class="clear btn func">AC</button>
-                    <button class="backspace btn func">&larr;</button>
-                    <button class="mod btn op">%</button>
-                    <button class="sqrt btn func">&radic;x</button>
-                    <button class="pow btn func">X<sup>y</sup></button>
-                    <button class="sign btn func">&MinusPlus;</button>
-                    <button class="one btn num">1</button>
-                    <button class="two btn num">2</button>
-                    <button class="three btn num">3</button>
-                    <button class="four btn num">4</button>
-                    <button class="five btn num">5</button>
-                    <button class="six btn num">6</button>
-                    <button class="seven btn num">7</button>
-                    <button class="eight btn num">8</button>
-                    <button class="nine btn num">9</button>
-                    <button class="zero btn num">0</button>
-                    <button class="decimal btn">.</button>
+                    <button onclick="onclearClick()" class="btn func">AC</button>
+                    <button onclick="onBackspaceClick()" class="btn func">&larr;</button>
+                    <button onclick="onOperatorClick('%')" class="btn op">%</button>
+                    <button onclick="onSqrtClick()" class="sqrt btn func">&radic;x</button>
+                    <button onclick="onPowerClick('1')" class="pow btn func">x<sup>y</sup></button>
+                    <button onclick="onSignClick()" class="btn func">&MinusPlus;</button>
+                    <button onclick="onNumberClick('1')" class="btn num">1</button>
+                    <button onclick="onNumberClick('2')" class="btn num">2</button>
+                    <button onclick="onNumberClick('3')" class="btn num">3</button>
+                    <button onclick="onNumberClick('4')" class="btn num">4</button>
+                    <button onclick="onNumberClick('5')" class="btn num">5</button>
+                    <button onclick="onNumberClick('6')" class="btn num">6</button>
+                    <button onclick="onNumberClick('7')" class="btn num">7</button>
+                    <button onclick="onNumberClick('8')" class="btn num">8</button>
+                    <button onclick="onNumberClick('9')" class="btn num">9</button>
+                    <button onclick="onNumberClick('0')" class="zero btn num">0</button>
+                    <button onclick="onDecimalClick('.')" class="decimal btn num">.</button>
                 </div>
                 <div class="btn-group-right">
-                    <button class="add btn op">+</button>
-                    <button class="sub btn op">-</button>
-                    <button class="multi btn op">&times;</button>
-                    <button class="div btn op">&divide;</button>
-                    <button class="equals btn">=</button>
+                    <button onclick="onOperatorClick('+')" class="btn op">+</button>
+                    <button onclick="onOperatorClick('-')" class="btn op">-</button>
+                    <button onclick="onOperatorClick('\u00D7')" class="btn op">&times;</button>
+                    <button onclick="onOperatorClick('\u00F7')" class="btn op">&divide;</button>
+                    <button onclick="onEqualsClick()" class="equals btn">=</button>
                 </div>
             </div>
         </div>
