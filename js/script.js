@@ -120,7 +120,7 @@ function onSqrtClick(){
     isPlaceholder = true;
 }
 
-function onOperatorClick(op){
+function onOperatorClick(op, btn){
     if (isNaN(firstNumber)){
         firstNumber = parseFloat(newOp.textContent);
         operator = op;
@@ -147,7 +147,7 @@ function onEqualsClick(){
         secondNumber = parseFloat(newOp.textContent);
 
         if (isDivideByZero(operator, secondNumber)) return;
-        
+
         const result = operation(firstNumber, secondNumber, operator);
         updatePrevOpText(`${firstNumber} ${operator} ${secondNumber} =`);
         updateNewOpText(result);
@@ -183,3 +183,27 @@ function operation(firstNum, secondNum, op){
     isPlaceholder = true;
     return result;
 }
+
+document.addEventListener('keydown', function(e) {
+    const key = e.key;
+    const SYMBOLS = '^%-+';
+
+    if (/^\d$/.test(key)) {
+        onNumberClick(key, e.target);
+    } else if (key === 'Enter') {
+        e.preventDefault();
+        onEqualsClick();
+    } else if (SYMBOLS.includes(key)) {
+        onOperatorClick(key);
+    } else if (key === '*') {
+        onOperatorClick(SYMBOL_MULTIPLY);
+        e.preventDefault();
+    } else if (key === '/') {
+        onOperatorClick(SYMBOL_DIVIDE);
+    } else if (key === 'Backspace') {
+        onBackspaceClick();
+    } else if (key === 'Delete') {
+        onClearClick();
+    }
+    document.activeElement.blur();
+});
