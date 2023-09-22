@@ -1,14 +1,5 @@
 const prevOp = document.querySelector('.prev-op');
 const newOp = document.querySelector('.new-op');
-const numBtns = document.querySelectorAll('.num');
-const operatorBtns = document.querySelectorAll('.op');
-const decimalBtn = document.querySelector('.decimal');
-const clearBtn = document.querySelector('.clear');
-const backBtn = document.querySelector('.backspace');
-const signBtn = document.querySelector('.sign');
-const sqrtBtn = document.querySelector('.sqrt');
-const powBtn = document.querySelector('.pow');
-const equalsBtn = document.querySelector('.equals');
 
 let isPlaceHolder = false;
 let firstNumber = NaN;
@@ -30,6 +21,12 @@ function nullifyValues(){
     operator = null;
 }
 
+function onClearClick(){
+    newOp.textContent = '0';
+    prevOp.textContent = '';
+    nullifyValues()
+}
+
 function isDivideByZero(op, denom){
     console.log(`Operator: ${op} - Denom: ${denom}`);
     if ((op === '\u00F7' || op === '%') && denom == 0){
@@ -40,19 +37,19 @@ function isDivideByZero(op, denom){
     return false;
 }
 
-function onNumberClick(){
+function onNumberClick(num){
     if (isPlaceHolder) {
         updateNewOpText('0');
         isPlaceHolder = false;
     }
 
     if (newOp.textContent === '0'){
-        updateNewOpText(this.textContent);
+        updateNewOpText(num);
     } else {
         if (newOp.textContent.length >= 21){
             alert("Maxinum numbers reached")
         } else {
-            updateNewOpText(newOp.textContent + this.textContent);
+            updateNewOpText(newOp.textContent + num);
         }
     }
 }
@@ -65,11 +62,11 @@ function onDecimalClick(){
     if (newOp.textContent.includes('.')) {
         alert("You cannot have more than one decimal!");
     } else {
-        updateNewOpText(newOp.textContent + this.textContent);
+        updateNewOpText(newOp.textContent + '.');
     }
 }
 
-function onSignClicked(){
+function onSignClick(){
     if (newOp.textContent == 0) return;
 
     if (newOp.textContent[0] === '-'){
@@ -79,7 +76,7 @@ function onSignClicked(){
     }
 }
 
-function onBackspaceClicked(){
+function onBackspaceClick(){
     if (newOp.textContent === '0') return;
 
     isPlaceHolder = false;
@@ -97,7 +94,7 @@ function onBackspaceClicked(){
     updateNewOpText(newText)    
 }
 
-function onSqrtClicked(){
+function onSqrtClick(){
     // add check for negative number
     if (isNaN(firstNumber)){
         updatePrevOpText(`\u221A ${newOp.textContent} =`);
@@ -110,15 +107,15 @@ function onSqrtClicked(){
     }
 }
 
-function onPowClicked(){
+function onPowerClick(){
 
 }
 
-function onOperatorClicked(){
+function onOperatorClick(op){
     let result = 0;
     if (isNaN(firstNumber)){
         firstNumber = parseFloat(newOp.textContent);
-        operator = this.textContent;
+        operator = op;
         isPlaceHolder = true;
         updatePrevOpText(`${firstNumber} ${operator}`);
     } else if (isNaN(secondNumber)) {
@@ -129,12 +126,12 @@ function onOperatorClicked(){
 
         if (operator === null){
             console.log('Second number with null op');
-            operator = this.textContent;
+            operator = op;
             result = operation(firstNumber, secondNumber, operator);
             updatePrevOpText(`${firstNumber} ${operator} ${secondNumber} =`);
         } else {
             result = operation(firstNumber, secondNumber, operator);
-            operator = this.textContent;
+            operator = op;
             updatePrevOpText(`${result} ${operator}`);
         }        
         firstNumber = result;
@@ -181,30 +178,5 @@ function operation(firstNum, secondNum, op){
     isPlaceHolder = true;
     return result;
 }
-
-numBtns.forEach((button) => {
-    button.addEventListener('click', onNumberClick);
-});
-
-operatorBtns.forEach((button) => {
-    button.addEventListener('click', onOperatorClicked);
-});
-
-decimalBtn.addEventListener('click', onDecimalClick);
-
-signBtn.addEventListener('click', onSignClicked);
-
-clearBtn.addEventListener('click', () => {
-    newOp.textContent = '0';
-    prevOp.textContent = '';
-    nullifyValues()
-});
-
-backBtn.addEventListener('click', onBackspaceClicked);
-
-sqrtBtn.addEventListener('click', onSqrtClicked);
-
-equalsBtn.addEventListener('click', onEqualsClick);
-
 
 
