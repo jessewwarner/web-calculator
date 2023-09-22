@@ -74,11 +74,8 @@ function onDecimalClick(){
 function onSignClick(){
     if (newOp.textContent == 0) return;
 
-    if (newOp.textContent[0] === SYMBOL_MINUS){
-        updateNewOpText(newOp.textContent.slice(1));
-    } else {
-        updateNewOpText(`-${newOp.textContent}`);
-    }
+    const text = newOp.textContent;
+    updateNewOpText(text[0] === SYMBOL_MINUS ? text.slice(1) : `-${text}`);
 }
 
 function onBackspaceClick(){
@@ -120,7 +117,7 @@ function onSqrtClick(){
     isPlaceholder = true;
 }
 
-function onOperatorClick(op, btn){
+function onOperatorClick(op){
     if (isNaN(firstNumber)){
         firstNumber = parseFloat(newOp.textContent);
         operator = op;
