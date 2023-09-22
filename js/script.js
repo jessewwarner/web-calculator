@@ -30,6 +30,16 @@ function nullifyValues(){
     operator = null;
 }
 
+function isDivideByZero(op, denom){
+    console.log(`Operator: ${op} - Denom: ${denom}`);
+    if ((op === '\u00F7' || op === '%') && denom == 0){
+        alert("Cannot divide by zero!")
+        secondNumber = NaN;
+        return true;
+    }
+    return false;
+}
+
 function onNumberClick(){
     if (isPlaceHolder) {
         updateNewOpText('0');
@@ -59,7 +69,7 @@ function onDecimalClick(){
     }
 }
 
-function addSignToScreen(){
+function onSignClicked(){
     if (newOp.textContent == 0) return;
 
     if (newOp.textContent[0] === '-'){
@@ -69,7 +79,7 @@ function addSignToScreen(){
     }
 }
 
-function removeLastNumber(){
+function onBackspaceClicked(){
     if (newOp.textContent === '0') return;
 
     isPlaceHolder = false;
@@ -87,7 +97,8 @@ function removeLastNumber(){
     updateNewOpText(newText)    
 }
 
-function getSquareRoot(){
+function onSqrtClicked(){
+    // add check for negative number
     if (isNaN(firstNumber)){
         updatePrevOpText(`\u221A ${newOp.textContent} =`);
         updateNewOpText(Math.sqrt(parseFloat(newOp.textContent)));
@@ -97,10 +108,13 @@ function getSquareRoot(){
         updateNewOpText(firstNumber + Math.sqrt(parseFloat(newOp.textContent)));
         nullifyValues()
     }
-    
 }
 
-function operatorClicked(){
+function onPowClicked(){
+
+}
+
+function onOperatorClicked(){
     let result = 0;
     if (isNaN(firstNumber)){
         firstNumber = parseFloat(newOp.textContent);
@@ -109,6 +123,10 @@ function operatorClicked(){
         updatePrevOpText(`${firstNumber} ${operator}`);
     } else if (isNaN(secondNumber)) {
         secondNumber = parseFloat(newOp.textContent);
+
+        if (isDivideByZero(operator, secondNumber)) return;
+        console.log("No divide by zero");
+
         if (operator === null){
             console.log('Second number with null op');
             operator = this.textContent;
@@ -126,7 +144,7 @@ function operatorClicked(){
     updateNewOpText('0');
 }
 
-function equalsClick(){
+function onEqualsClick(){
     if (isNaN(firstNumber)){
         updatePrevOpText(`${parseFloat(newOp.textContent)} =`);
         isPlaceHolder = true;
@@ -169,12 +187,12 @@ numBtns.forEach((button) => {
 });
 
 operatorBtns.forEach((button) => {
-    button.addEventListener('click', operatorClicked);
+    button.addEventListener('click', onOperatorClicked);
 });
 
 decimalBtn.addEventListener('click', onDecimalClick);
 
-signBtn.addEventListener('click', addSignToScreen);
+signBtn.addEventListener('click', onSignClicked);
 
 clearBtn.addEventListener('click', () => {
     newOp.textContent = '0';
@@ -182,11 +200,11 @@ clearBtn.addEventListener('click', () => {
     nullifyValues()
 });
 
-backBtn.addEventListener('click', removeLastNumber);
+backBtn.addEventListener('click', onBackspaceClicked);
 
-sqrtBtn.addEventListener('click', getSquareRoot);
+sqrtBtn.addEventListener('click', onSqrtClicked);
 
-equalsBtn.addEventListener('click', equalsClick);
+equalsBtn.addEventListener('click', onEqualsClick);
 
 
 
