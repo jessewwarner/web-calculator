@@ -23,6 +23,13 @@ function updateNewOpText(newText){
     newOp.textContent = newText;
 }
 
+function nullifyValues(){
+    isPlaceHolder = false;
+    firstNumber = NaN;
+    secondNumber = NaN;
+    operator = null;
+}
+
 function onNumberClick(){
     if (isPlaceHolder) {
         updateNewOpText('0');
@@ -81,11 +88,16 @@ function removeLastNumber(){
 }
 
 function getSquareRoot(){
-    updatePrevOpText(`\u221A ${newOp.textContent} =`);
-    firstNumber = NaN;
-    secondNumber = NaN;
-    updateNewOpText(Math.sqrt(parseFloat(newOp.textContent)));
-    isPlaceHolder = true;
+    if (isNaN(firstNumber)){
+        updatePrevOpText(`\u221A ${newOp.textContent} =`);
+        updateNewOpText(Math.sqrt(parseFloat(newOp.textContent)));
+        isPlaceHolder = true;
+    } else {
+        updatePrevOpText(`${firstNumber} ${operator} \u221A ${newOp.textContent} =`);
+        updateNewOpText(firstNumber + Math.sqrt(parseFloat(newOp.textContent)));
+        nullifyValues()
+    }
+    
 }
 
 function operatorClicked(){
@@ -123,10 +135,7 @@ function equalsClick(){
         const result = operation(firstNumber, secondNumber, operator);
         updatePrevOpText(`${firstNumber} ${operator} ${secondNumber} =`);
         updateNewOpText(result);
-        firstNumber = NaN;
-        secondNumber = NaN;
-        operator = null;
-        isPlaceHolder = true;
+        nullifyValues()
     } 
 }
 
@@ -170,9 +179,7 @@ signBtn.addEventListener('click', addSignToScreen);
 clearBtn.addEventListener('click', () => {
     newOp.textContent = '0';
     prevOp.textContent = '';
-    firstNumber = NaN;
-    secondNumber = NaN;
-    operator = null;
+    nullifyValues()
 });
 
 backBtn.addEventListener('click', removeLastNumber);
